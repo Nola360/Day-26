@@ -10,26 +10,20 @@ document.getElementById('button3').addEventListener('click', getExternal);
 // Get Local Text File Data
 function getText() {
   fetch('test.txt')
-    .then(function (res) {
-      return res.text();
-    })
-    .then(function (data) {
+    .then(res => res.text())
+    .then(data => {
       console.log(data);
       document.getElementById('output').innerHTML = data;
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+    .catch(err => console.log(err))
 }
 
 // Get Local Json Data
 
 function getExternal() {
   fetch('https://api.github.com/users')
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
+    .then(res => res.json)
+    .then(data => {
       console.log(data);
       let output = ''
       data.forEach(function (user, id) {
@@ -41,9 +35,8 @@ function getExternal() {
       document.getElementById('output').innerHTML = output;
 
     })
-    .catch(function (err) {
-      console.log(err);
-    });
+    .catch(err => console.log(err));
+
 }
 
 
